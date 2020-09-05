@@ -1,5 +1,6 @@
 .ins-header {
   display: flex;
+  justify-content: center;
 }
 
 .ins-container {
@@ -11,17 +12,23 @@
   margin: 0 auto;
   align-items: center;
   display: flex;
-  padding: 9px 0;
+  padding: 13px 0;
 }
 
-.ins-logo {
+.logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+  min-width: 40%;
 }
 
-.ins-logo img {
+.logo-container img {
   height: 100%;
   margin-top: 7px;
+}
+
+.navigator {
+  justify-content: flex-end;
+  flex: 1;
 }

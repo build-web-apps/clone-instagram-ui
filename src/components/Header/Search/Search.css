@@ -1,0 +1,14 @@
+.ins-search-box {
+  width: 215px;
+}
+.ins-search-box input {
+  background-color: #fafafa;
+  border: solid 1px #dbdbdb;
+  padding: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.ins-search-box input:focus {
+  text-align: left;
+}
