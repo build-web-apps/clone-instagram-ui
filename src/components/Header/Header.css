@@ -1,0 +1,27 @@
+.ins-header {
+  display: flex;
+}
+
+.ins-container {
+  width: 100%;
+  max-width: 975px;
+  height: 54px;
+  max-height: 54px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  padding: 9px 0;
+}
+
+.ins-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.ins-logo img {
+  height: 100%;
+  margin-top: 7px;
+}
