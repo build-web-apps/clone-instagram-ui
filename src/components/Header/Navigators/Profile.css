@@ -1,0 +1,5 @@
+.profile img {
+  max-height: 24px;
+  border-radius: 50%;
+  display: flex;
+}

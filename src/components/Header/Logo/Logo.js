@@ -1,9 +1,9 @@
 import React from 'react';
 import './Logo.css';
 
-export const Logo = ({ src, alternateText }) => {
+export const Logo = ({ className, src, alternateText }) => {
   return (
-    <figure class="ins-logo">
+    <figure className={className}>
       <img src={src} alt={alternateText} />
     </figure>
   );
