@@ -12,7 +12,7 @@ const INSTAGRAM_SEARCH_PLACEHOLDER_TEXT = 'Search';
 
 export const Header = ({ onSearchChange }) => {
   return (
-    <AppBar color="transparent">
+    <AppBar color="#ffffff">
       <div className="ins-container">
         <Logo
           className="logo-container"
