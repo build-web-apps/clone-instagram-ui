@@ -12,11 +12,28 @@ If you have followed the steps from the beginning, you should have already creat
 > Inside **SideBar.js** file, copy paste the following
 
 ```js
+import React from 'react';
+import './SideBar.css';
+import { ProfileCard } from '../../ProfileCard/ProfileCard';
 
+export const SideBar = ({ userInformation }) => {
+  return (
+    <div className="side-bar">
+      <ProfileCard
+        username={userInformation.username}
+        description={userInformation.name}
+      />
+    </div>
+  );
+};
 ```
 
 > Inside **SideBar.css** file, copy paste the following
 
 ```css
-
+.side-bar {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+}
 ```
