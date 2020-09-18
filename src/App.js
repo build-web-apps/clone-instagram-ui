@@ -8,6 +8,10 @@ class App extends React.PureComponent {
 
     this.state = {
       posts: [],
+      userInformation: {
+        username: 'arunkumars08',
+        name: 'Arunkumar Srisailapathi',
+      },
     };
   }
 
@@ -39,6 +43,7 @@ class App extends React.PureComponent {
     return (
       <Body
         className="ins-body"
+        userInformation={this.state.userInformation}
         posts={this.state.posts}
         onCommentChange={this.onCommentChange}
       ></Body>
