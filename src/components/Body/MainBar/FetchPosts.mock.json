@@ -1,0 +1,54 @@
+{
+  "data": {
+    "posts": [
+      {
+        "username": "arunkumar",
+        "title": "Sample Post 1",
+        "media": {
+          "url": "https://instagram.fmaa3-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/119049212_1380671818805410_1047204773894073180_n.jpg?_nc_ht=instagram.fmaa3-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=P-SoSLlyjgwAX_YjHOR&oh=fc866e97e5d8b6ff15b3499cdd60a8c0&oe=5F85CD26"
+        },
+        "likes": 0,
+        "comments": [
+          {
+            "username": "sampleuser",
+            "content": "This is the sample comment"
+          },
+          {
+            "username": "sampleuser",
+            "content": "This is the sample comment"
+          },
+          {
+            "username": "sampleuser",
+            "content": "This is the sample comment"
+          },
+          {
+            "username": "sampleuser",
+            "content": "This is the sample comment"
+          },
+          {
+            "username": "sampleuser",
+            "content": "This is the sample comment"
+          },
+          {
+            "username": "sampleuser",
+            "content": "This is the sample comment"
+          }
+        ]
+      },
+      {
+        "username": "natgeo",
+        "title": "Sample Post 1",
+        "media": {
+          "url": "https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+        },
+        "likes": 0,
+        "comments": [
+          {
+            "username": "sampleuser",
+            "content": "This is the sample comment"
+          }
+        ]
+      }
+    ]
+  }
+}

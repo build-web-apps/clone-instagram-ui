@@ -1,3 +1,6 @@
 .ins-post {
   margin-bottom: 60px;
 }
+.MuiCardContent-root.comments-section {
+  padding-top: 0;
+}
