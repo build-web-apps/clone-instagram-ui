@@ -11,14 +11,16 @@ import {
 import { FavoriteBorderOutlined } from '@material-ui/icons';
 import { Comment } from './Comment';
 import { AddComment } from './AddComment';
+import { getBackgroundColor } from '../../ProfileCard/ProfileCard';
 
 export const Post = ({ post, onCommentChange }) => {
+  const firstCharacter = post.username[0].toUpperCase();
   return (
     <Card className="ins-post">
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe">
-            {post.username[0].toUpperCase() || '-'}
+          <Avatar style={{ background: getBackgroundColor(firstCharacter) }}>
+            {firstCharacter || '-'}
           </Avatar>
         }
         title={post.title}
