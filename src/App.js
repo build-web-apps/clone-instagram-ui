@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from './components/Header/Header';
 import { Body } from './components/Body/Body';
 import './App.css';
+import { Upload } from './components/Upload/Upload';
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class App extends React.PureComponent {
         username: 'arunkumars08',
         name: 'Arunkumar Srisailapathi',
       },
+      openDialog: false,
     };
   }
 
@@ -31,9 +33,43 @@ class App extends React.PureComponent {
     console.log('Inside Search change', event.target.value);
   };
 
+  onNavigationClick = (type) => {
+    switch (type) {
+      case 'add-media':
+        this.setState({
+          openDialog: !this.state.openDialog,
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
   renderHeader() {
-    return <Header onSearchChange={this.onSearchChange} searchResults={null} />;
+    return (
+      <Header
+        onSearchChange={this.onSearchChange}
+        onNavigationClick={this.onNavigationClick}
+        searchResults={null}
+      />
+    );
   }
+
+  getBase64 = (file) => {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      console.log(reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+  };
+
+  onFileUpload = (files) => {
+    const file = files[0];
+    console.log(this.getBase64(file));
+  };
 
   onCommentChange = (value) => {
     console.log(value);
@@ -50,11 +86,21 @@ class App extends React.PureComponent {
     );
   }
 
+  renderDialog() {
+    return (
+      <Upload
+        onDialogClose={this.onNavigationClick.bind(this, 'add-media')}
+        onFileUploadSave={this.onFileUpload}
+      />
+    );
+  }
+
   renderInstagramUI() {
     return (
       <React.Fragment>
         {this.renderHeader()}
         {this.renderBody()}
+        {this.state.openDialog && this.renderDialog()}
       </React.Fragment>
     );
   }

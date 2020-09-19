@@ -10,7 +10,7 @@ const INSTAGRAM_SRC =
 
 const INSTAGRAM_SEARCH_PLACEHOLDER_TEXT = 'Search';
 
-export const Header = ({ onSearchChange }) => {
+export const Header = ({ onSearchChange, onNavigationClick }) => {
   return (
     <AppBar color="#ffffff">
       <div className="ins-container">
@@ -23,7 +23,10 @@ export const Header = ({ onSearchChange }) => {
           placeholder={INSTAGRAM_SEARCH_PLACEHOLDER_TEXT}
           onSearchChange={onSearchChange}
         />
-        <Navigators className="navigator" />
+        <Navigators
+          className="navigator"
+          onNavigationClick={onNavigationClick}
+        />
       </div>
     </AppBar>
   );
