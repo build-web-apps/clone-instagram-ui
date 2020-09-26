@@ -1,19 +1,31 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Body } from './components/Body/Body';
 import './App.css';
 import { Upload } from './components/Upload/Upload';
+import { Home } from './views/Home';
+import { Profile } from './views/Profile';
+import { getUserInformation } from './utils/Utils';
+import { Start } from './views/Start';
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    const user = getUserInformation();
+
     this.state = {
       posts: [],
       userInformation: {
-        username: 'arunkumars08',
-        name: 'Arunkumar Srisailapathi',
+        ...(user || {}),
       },
       openDialog: false,
+      isLoggedin: user !== null,
     };
   }
 
@@ -86,6 +98,44 @@ class App extends React.PureComponent {
     );
   }
 
+  renderRoutes() {
+    return (
+      <Router>
+        <Switch>
+          <Route
+            path="/profile/:username"
+            render={(props) => {
+              return <Profile {...props} />;
+            }}
+          ></Route>
+          <Route
+            path="/start"
+            render={(props) => {
+              return this.state.isLoggedin ? (
+                <Home {...props} userInformation={this.state.userInformation} />
+              ) : (
+                <Start {...props} />
+              );
+            }}
+          ></Route>
+          {/* <Route path="/topics">
+            <Topics />
+          </Route> */}
+          <Route
+            path="/"
+            render={(props) => {
+              return this.state.isLoggedin ? (
+                <Home {...props} userInformation={this.state.userInformation} />
+              ) : (
+                <Redirect to="/start" />
+              );
+            }}
+          ></Route>
+        </Switch>
+      </Router>
+    );
+  }
+
   renderDialog() {
     return (
       <Upload
@@ -98,8 +148,8 @@ class App extends React.PureComponent {
   renderInstagramUI() {
     return (
       <React.Fragment>
-        {this.renderHeader()}
-        {this.renderBody()}
+        {this.state.isLoggedin && this.renderHeader()}
+        {this.renderRoutes()}
         {this.state.openDialog && this.renderDialog()}
       </React.Fragment>
     );

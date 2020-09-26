@@ -12,19 +12,25 @@ import { FavoriteBorderOutlined } from '@material-ui/icons';
 import { Comment } from './Comment';
 import { AddComment } from './AddComment';
 import { getBackgroundColor } from '../../ProfileCard/ProfileCard';
+import { Link } from 'react-router-dom';
 
 export const Post = ({ post, onCommentChange }) => {
   const firstCharacter = post.username[0].toUpperCase();
   return (
     <Card className="ins-post">
-      <CardHeader
-        avatar={
-          <Avatar style={{ background: getBackgroundColor(firstCharacter) }}>
-            {firstCharacter || '-'}
-          </Avatar>
-        }
-        title={post.title}
-      />
+      <Link
+        to={`/profile/${post.username}`}
+        className="profile-navigation-link"
+      >
+        <CardHeader
+          avatar={
+            <Avatar style={{ background: getBackgroundColor(firstCharacter) }}>
+              {firstCharacter || '-'}
+            </Avatar>
+          }
+          title={post.username}
+        />
+      </Link>
       <img
         className="ins-post-media"
         src={post.media.url}

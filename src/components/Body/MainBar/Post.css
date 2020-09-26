@@ -2,6 +2,10 @@
   margin-bottom: 60px;
 }
 
+.ins-post .profile-navigation-link {
+  color: black;
+}
+
 .ins-post img {
   width: 100%;
 }
