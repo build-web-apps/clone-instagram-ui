@@ -1,3 +1,78 @@
 .ins-ui {
   background: #fafafa;
 }
+
+.ins-body {
+  min-height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  padding-top: 100px;
+}
+
+@media (max-width: 575.98px) {
+  .ins-body {
+    width: 100%;
+  }
+
+  .side-bar,
+  .ins-search {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .ins-body {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .ins-main {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .side-bar,
+  .ins-search {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .ins-body {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .ins-main {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .side-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .ins-body {
+    max-width: 900px;
+  }
+
+  .ins-main {
+    max-width: 70%;
+    width: 70%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .ins-body {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ins-body {
+    width: 100%;
+  }
+}

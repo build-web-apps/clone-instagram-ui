@@ -1,6 +1,11 @@
 .ins-post {
   margin-bottom: 60px;
 }
+
+.ins-post img {
+  width: 100%;
+}
+
 .MuiCardContent-root.comments-section {
   padding-top: 0;
 }
