@@ -1,11 +1,11 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-export const Comment = ({ username, content }) => {
+export const Comment = ({ userName, comment }) => {
   return (
     <Typography>
-      <b>{username}</b>
-      <span>{content}</span>
+      <b>{userName}</b>
+      <span>{comment}</span>
     </Typography>
   );
 };

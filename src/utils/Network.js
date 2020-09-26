@@ -1,7 +1,12 @@
+import { BASE_API_URL } from '../Constants';
+
 const makeCall = (type, url, data) => {
-  return fetch(url, {
+  return fetch(BASE_API_URL + url, {
     method: type,
     body: data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
 };
 

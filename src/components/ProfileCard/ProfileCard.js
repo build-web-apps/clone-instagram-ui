@@ -40,14 +40,14 @@ export const getBackgroundColor = (character) => {
 
 export const ProfileCard = ({
   className = 'profile-card',
-  username,
+  userName,
   description,
   link = '',
   isFollowRequired = false,
 }) => {
-  const firstCharacter = username[0].toUpperCase();
+  const firstCharacter = userName[0].toUpperCase();
   return (
-    <Link to={`/profile/${username}`} className="profile-navigation-link">
+    <Link to={`/profile/${userName}`} className="profile-navigation-link">
       <div className={className}>
         <div>
           <Avatar style={{ background: getBackgroundColor(firstCharacter) }}>
@@ -55,7 +55,7 @@ export const ProfileCard = ({
           </Avatar>
         </div>
         <div className="content-area">
-          <span className="username">{username}</span>
+          <span className="username">{userName}</span>
           <p className="decription">{description}</p>
         </div>
       </div>

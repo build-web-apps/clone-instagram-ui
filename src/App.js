@@ -17,7 +17,11 @@ class App extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const user = getUserInformation();
+    let user = getUserInformation();
+
+    if (user) {
+      user = user.profile;
+    }
 
     this.state = {
       posts: [],
@@ -27,18 +31,6 @@ class App extends React.PureComponent {
       openDialog: false,
       isLoggedin: user !== null,
     };
-  }
-
-  async fetchPosts(userId = 1234) {
-    const response = await fetch(`/posts?userId=${userId}`);
-    const posts = await response.json();
-    this.setState({
-      posts: posts.data.posts,
-    });
-  }
-
-  componentDidMount() {
-    this.fetchPosts(this.props.userId);
   }
 
   onSearchChange = (event) => {

@@ -6,7 +6,7 @@ export const SideBar = ({ userInformation }) => {
   return (
     <div className="side-bar">
       <ProfileCard
-        username={userInformation.username}
+        userName={userInformation.userName}
         description={userInformation.name}
       />
     </div>
