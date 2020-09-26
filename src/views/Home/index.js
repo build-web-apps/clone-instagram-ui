@@ -1,5 +1,6 @@
 import React from 'react';
 import { Body } from '../../components/Body/Body';
+import { getCall } from '../../utils/Network';
 
 export class Home extends React.PureComponent {
   constructor(props) {
@@ -11,10 +12,10 @@ export class Home extends React.PureComponent {
   }
 
   async fetchPosts(userId = 1234) {
-    const response = await fetch(`/posts?userId=${userId}`);
+    const response = await getCall(`/posts?userId=${userId}`);
     const posts = await response.json();
     this.setState({
-      posts: posts.data.posts,
+      posts: posts,
     });
   }
 

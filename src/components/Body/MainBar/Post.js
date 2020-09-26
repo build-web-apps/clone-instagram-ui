@@ -15,11 +15,11 @@ import { getBackgroundColor } from '../../ProfileCard/ProfileCard';
 import { Link } from 'react-router-dom';
 
 export const Post = ({ post, onCommentChange }) => {
-  const firstCharacter = post.username[0].toUpperCase();
+  const firstCharacter = post.userName[0].toUpperCase();
   return (
     <Card className="ins-post">
       <Link
-        to={`/profile/${post.username}`}
+        to={`/profile/${post.userName}`}
         className="profile-navigation-link"
       >
         <CardHeader
@@ -28,13 +28,13 @@ export const Post = ({ post, onCommentChange }) => {
               {firstCharacter || '-'}
             </Avatar>
           }
-          title={post.username}
+          title={post.userName}
         />
       </Link>
       <img
         className="ins-post-media"
-        src={post.media.url}
-        title={post.title}
+        src={post.media}
+        title={post.content}
         alt={post.title}
       />
       <CardActions disableSpacing>
@@ -43,9 +43,9 @@ export const Post = ({ post, onCommentChange }) => {
         </IconButton>
       </CardActions>
       <CardContent className="comments-section">
-        <b>{`${post.likes} Likes`}</b>
-        {post.comments.map((comment) => (
-          <Comment {...comment} />
+        <b>{`${post.likes || 0} Likes`}</b>
+        {post.comment.map((c) => (
+          <Comment {...c} />
         ))}
       </CardContent>
       <AddComment onCommentChange={onCommentChange} />

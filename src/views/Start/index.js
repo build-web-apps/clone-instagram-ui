@@ -45,9 +45,9 @@ export class Start extends React.PureComponent {
 
       try {
         let response = await postCall(
-          '/user',
+          '/users/login',
           JSON.stringify({
-            username: this.state.username,
+            userName: this.state.username,
             password: this.state.password,
           })
         );
@@ -61,9 +61,9 @@ export class Start extends React.PureComponent {
     } else {
       // The user is trying to register
       postCall(
-        '/user',
+        '/users/signup',
         JSON.stringify({
-          username: this.state.username,
+          userName: this.state.username,
           password: this.state.password,
           name: this.state.name,
         })
