@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProfileCard.css';
 import { Avatar } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const COLOR_MAP = {
   A: '#fb0c1c',
@@ -46,7 +47,7 @@ export const ProfileCard = ({
 }) => {
   const firstCharacter = username[0].toUpperCase();
   return (
-    <a className="profile-navigation-link" href={link}>
+    <Link to={`/profile/${username}`} className="profile-navigation-link">
       <div className={className}>
         <div>
           <Avatar style={{ background: getBackgroundColor(firstCharacter) }}>
@@ -58,6 +59,6 @@ export const ProfileCard = ({
           <p className="decription">{description}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
