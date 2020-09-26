@@ -1,5 +1,4 @@
 import React from 'react';
-import './Body.css';
 import { MainBar } from './MainBar/MainBar';
 import { SideBar } from './SideBar/SideBar';
 
