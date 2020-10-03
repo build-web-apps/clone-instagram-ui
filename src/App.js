@@ -45,6 +45,12 @@ const PrivateRoute = ({ children, ...rest }) => {
     />
   );
 };
+
+const isStartView = () => {
+  const { pathname } = window.location;
+  return pathname.indexOf('/start') !== -1 || pathname === '/';
+};
+
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -218,7 +224,7 @@ class App extends React.PureComponent {
   renderInstagramUI() {
     return (
       <React.Fragment>
-        {this.state.isLoggedin && this.renderHeader()}
+        {!isStartView() && this.renderHeader()}
         {this.renderRoutes()}
         {this.state.openDialog && this.renderDialog()}
         {this.state.fileUploadProgress && <Loader />}

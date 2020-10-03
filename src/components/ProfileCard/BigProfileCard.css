@@ -1,0 +1,37 @@
+.big-profile-card {
+  display: flex;
+  flex: 1;
+  padding: 0 100px;
+}
+
+.big-profile-card .avatar-area {
+  flex: 1;
+}
+
+.big-profile-card .content-area {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.big-profile-card .content-area .content-item .username {
+  font-size: 28px;
+  margin-right: 15px;
+}
+
+.big-profile-card .content-area .content-item {
+  display: flex;
+  padding: 10px 0;
+  font-size: 16px;
+  display: flex;
+}
+
+.big-profile-card .content-area .content-item.has-children-items {
+  justify-content: space-between;
+}
+
+.big-profile-card .big-profile-avatar {
+  width: 150px;
+  height: 150px;
+  font-size: 50px;
+}
