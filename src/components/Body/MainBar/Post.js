@@ -14,7 +14,7 @@ import { AddComment } from './AddComment';
 import { getBackgroundColor } from '../../ProfileCard/ProfileCard';
 import { Link } from 'react-router-dom';
 
-export const Post = ({ post, onCommentChange }) => {
+export const Post = ({ post, onCommentChange, onLike }) => {
   const firstCharacter = post.userName[0].toUpperCase();
   return (
     <Card className="ins-post">
@@ -38,7 +38,7 @@ export const Post = ({ post, onCommentChange }) => {
         alt={post.title}
       />
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={onLike}>
           <FavoriteBorderOutlined />
         </IconButton>
       </CardActions>

@@ -10,6 +10,10 @@ const makeCall = (type, url, data) => {
   });
 };
 
+export const patchCall = (url, data) => {
+  return makeCall('PATCH', url, data);
+};
+
 export const postCall = (url, data) => {
   return makeCall('POST', url, data);
 };
