@@ -5,6 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import imageCompression from 'browser-image-compression';
 import { Header } from './components/Header/Header';
 import { Body } from './components/Body/Body';
 import './App.css';
@@ -13,6 +14,10 @@ import { Home } from './views/Home';
 import { Profile } from './views/Profile';
 import { getUserInformation } from './utils/Utils';
 import { Start } from './views/Start';
+import { postCall } from './utils/Network';
+import { Loader } from './components/Loader/Loader';
+
+const SAVE_POSTS_API = '/posts';
 
 // A wrapper for <Route> that redirects to the login
 // screen if you're not yet authenticated.
@@ -55,6 +60,7 @@ class App extends React.PureComponent {
       userInformation: {
         ...(user || {}),
       },
+      fileUploadProgress: false,
       openDialog: false,
       isLoggedin: user !== null,
     };
@@ -86,20 +92,65 @@ class App extends React.PureComponent {
     );
   }
 
-  getBase64 = (file) => {
+  getBase64 = (file, callback) => {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      console.log(reader.result);
+      return callback(reader.result);
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
   };
 
-  onFileUpload = (files) => {
-    const file = files[0];
-    console.log(this.getBase64(file));
+  compressFile = async (file) => {
+    const options = {
+      maxSizeMB: 0.01,
+      maxWidthOrHeight: 500,
+      useWebWorker: true,
+    };
+    try {
+      const compressedFile = await imageCompression(file, options);
+      return compressedFile;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  showUploadProgress = () => {
+    this.setState({
+      fileUploadProgress: true,
+    });
+  };
+
+  hideUploadProgress = () => {
+    this.setState({
+      openDialog: false,
+      fileUploadProgress: false,
+    });
+  };
+
+  onFileUpload = async (files) => {
+    let file = files[0];
+    console.log('Original file size: ', file.size);
+    file = await this.compressFile(file);
+    console.log('Compressed file size: ', file.size);
+    this.showUploadProgress();
+    this.getBase64(file, async (base64) => {
+      try {
+        const response = await postCall(
+          SAVE_POSTS_API,
+          JSON.stringify({
+            userName: this.state.userInformation.userName,
+            content: ' ',
+            media: base64,
+          })
+        );
+        await response.json();
+      } finally {
+        this.hideUploadProgress();
+      }
+    });
   };
 
   onCommentChange = (value) => {
@@ -170,6 +221,7 @@ class App extends React.PureComponent {
         {this.state.isLoggedin && this.renderHeader()}
         {this.renderRoutes()}
         {this.state.openDialog && this.renderDialog()}
+        {this.state.fileUploadProgress && <Loader />}
       </React.Fragment>
     );
   }
