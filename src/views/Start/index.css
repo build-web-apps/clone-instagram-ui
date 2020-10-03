@@ -3,6 +3,7 @@ header {
 }
 
 .start-container {
+  position: relative;
   width: 500px;
   display: flex;
   margin: 20px auto;
@@ -55,4 +56,8 @@ header {
   color: #0095f6;
   margin-left: 5px;
   cursor: pointer;
+}
+
+.error {
+  color: red;
 }

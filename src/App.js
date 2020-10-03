@@ -13,6 +13,33 @@ import { Home } from './views/Home';
 import { Profile } from './views/Profile';
 import { getUserInformation } from './utils/Utils';
 import { Start } from './views/Start';
+
+// A wrapper for <Route> that redirects to the login
+// screen if you're not yet authenticated.
+const PrivateRoute = ({ children, ...rest }) => {
+  let user = getUserInformation();
+
+  if (user) {
+    user = user.profile;
+  }
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        user ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/start',
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+};
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -100,19 +127,19 @@ class App extends React.PureComponent {
               return <Profile {...props} />;
             }}
           ></Route>
+          <PrivateRoute path="/home">
+            <Home userInformation={getUserInformation()} />
+          </PrivateRoute>
           <Route
             path="/start"
             render={(props) => {
               return this.state.isLoggedin ? (
-                <Home {...props} userInformation={this.state.userInformation} />
+                <Redirect to="/" />
               ) : (
                 <Start {...props} />
               );
             }}
           ></Route>
-          {/* <Route path="/topics">
-            <Topics />
-          </Route> */}
           <Route
             path="/"
             render={(props) => {
