@@ -7,10 +7,15 @@ export const Body = ({
   posts,
   userInformation,
   onCommentChange,
+  onLike,
 }) => {
   return (
     <div className={className}>
-      <MainBar posts={posts} onCommentChange={onCommentChange} />
+      <MainBar
+        posts={posts}
+        onCommentChange={onCommentChange}
+        onLike={onLike}
+      />
       <SideBar userInformation={userInformation} />
     </div>
   );

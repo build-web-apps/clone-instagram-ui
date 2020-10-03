@@ -2,11 +2,15 @@ import React from 'react';
 import './MainBar.css';
 import { Post } from './Post';
 
-export const MainBar = ({ posts, onCommentChange }) => {
+export const MainBar = ({ posts, onCommentChange, onLike }) => {
   return (
     <div className="ins-main">
       {posts.map((post) => (
-        <Post post={post} onCommentChange={onCommentChange} />
+        <Post
+          post={post}
+          onCommentChange={onCommentChange.bind(null, post._id)}
+          onLike={onLike.bind(null, post._id)}
+        />
       ))}
     </div>
   );
