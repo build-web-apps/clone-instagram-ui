@@ -5,8 +5,17 @@ import './index.css';
 import Input from '@material-ui/core/Input';
 import { Button } from '@material-ui/core';
 import { postCall } from '../../utils/Network';
-import { setUserInformation, isValid } from '../../utils/Utils';
+import {
+  setUserInformation,
+  isValid,
+  getUserInformation,
+} from '../../utils/Utils';
 import { Redirect } from 'react-router-dom';
+import { INVALID_CREDENTIALS_ERROR } from '../../Constants';
+import { Loader } from '../../components/Loader/Loader';
+
+const LOGIN_API = '/users/login';
+const REGISTRATION_API = '/users/signup';
 
 export class Start extends React.PureComponent {
   constructor(props) {
@@ -16,6 +25,7 @@ export class Start extends React.PureComponent {
       name: '',
       username: '',
       password: '',
+      loader: false,
       success: false,
       error: false,
     };
@@ -28,6 +38,7 @@ export class Start extends React.PureComponent {
 
   switchStartView = () => {
     this.setState({
+      error: null,
       isLogin: !this.state.isLogin,
     });
   };
@@ -35,17 +46,39 @@ export class Start extends React.PureComponent {
   setSuccess = (data) => {
     setUserInformation(JSON.stringify(data));
     this.setState({
+      loader: false,
       success: true,
+    });
+    window.location.reload();
+  };
+
+  setError = () => {
+    this.setState({
+      error: true,
+      loader: false,
+    });
+  };
+
+  showLoader = () => {
+    this.setState({
+      loader: true,
+    });
+  };
+
+  hideLoader = () => {
+    this.setState({
+      loader: false,
     });
   };
 
   handleStartClick = async () => {
+    this.showLoader();
     if (this.state.isLogin) {
       // Then user is logging in
 
       try {
         let response = await postCall(
-          '/users/login',
+          LOGIN_API,
           JSON.stringify({
             userName: this.state.username,
             password: this.state.password,
@@ -53,15 +86,13 @@ export class Start extends React.PureComponent {
         );
         const json = await response.json();
         this.setSuccess(json);
-      } catch (err) {
-        this.setState({
-          error: true,
-        });
+      } catch (error) {
+        this.setError(error);
       }
     } else {
       // The user is trying to register
       postCall(
-        '/users/signup',
+        REGISTRATION_API,
         JSON.stringify({
           userName: this.state.username,
           password: this.state.password,
@@ -73,9 +104,7 @@ export class Start extends React.PureComponent {
           this.setSuccess(json);
         })
         .catch((error) => {
-          this.setState({
-            error: true,
-          });
+          this.setError(error);
         });
     }
   };
@@ -94,11 +123,14 @@ export class Start extends React.PureComponent {
   render() {
     const disabled = this.checkIsDisabled();
     if (this.state.success) {
-      return <Redirect to="/" />;
+      return (
+        <Redirect to="/home" userInformation={getUserInformation().profile} />
+      );
     }
     return (
       <div className="start">
         <section className="start-container primary">
+          {this.state.loader && <Loader />}
           <Logo className="start-logo" src={INSTAGRAM_SRC} />
           {!this.state.isLogin && (
             <h2>Sign up to see photos and videos from your friends.</h2>
@@ -142,6 +174,11 @@ export class Start extends React.PureComponent {
             {!this.state.isLogin ? 'Log in' : 'Sign up'}
           </span>
         </section>
+        {this.state.error && (
+          <section className="start-container secondary">
+            <span className="error">{INVALID_CREDENTIALS_ERROR}</span>
+          </section>
+        )}
       </div>
     );
   }

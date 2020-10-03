@@ -1,13 +1,25 @@
 import React from 'react';
 import { Body } from '../../components/Body/Body';
 import { getCall } from '../../utils/Network';
+import { getUserInformation } from '../../utils/Utils';
 
 export class Home extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    let user = getUserInformation();
+
+    if (user) {
+      user = user.profile;
+    }
+
     this.state = {
       posts: [],
+      userInformation: {
+        ...(user || {}),
+      },
+      openDialog: false,
+      isLoggedin: user !== null,
     };
   }
 
@@ -31,7 +43,7 @@ export class Home extends React.PureComponent {
     return (
       <Body
         className="ins-body"
-        userInformation={this.props.userInformation}
+        userInformation={this.state.userInformation}
         posts={this.state.posts}
         onCommentChange={this.onCommentChange}
       ></Body>
