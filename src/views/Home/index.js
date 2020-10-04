@@ -7,6 +7,17 @@ const POST_BASE_ROUTE = '/posts';
 const LIKE_API = `${POST_BASE_ROUTE}/likes`;
 const COMMENT_API = `${POST_BASE_ROUTE}/comment`;
 
+const updatePosts = (posts, post) => {
+  const cachePosts = [...posts];
+  for (let i in cachePosts) {
+    const p = cachePosts[i];
+    if (p._id === post._id) {
+      cachePosts[i] = post;
+    }
+  }
+  return cachePosts;
+};
+
 export class Home extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -23,9 +34,18 @@ export class Home extends React.PureComponent {
     };
   }
 
+  async fetchPost(postId) {
+    const response = await getCall(`/posts/${postId}`);
+    const post = await response.json();
+    this.setState({
+      posts: updatePosts(this.state.posts, post),
+    });
+  }
+
   async fetchPosts() {
-    const { userId } = this.props;
-    const response = await getCall(`/posts?userId=${userId}`);
+    const response = await getCall(
+      `/home/${this.state.userInformation.userName}`
+    );
     const posts = await response.json();
     this.setState({
       posts: posts,
@@ -45,6 +65,7 @@ export class Home extends React.PureComponent {
           ],
         })
       );
+      this.fetchPost(postId);
     } catch (err) {
       console.log('Do something with this error', err);
     }
@@ -52,12 +73,8 @@ export class Home extends React.PureComponent {
 
   onLike = async (postId) => {
     try {
-      const response = await patchCall(
-        `${LIKE_API}/${postId}`,
-        JSON.stringify({
-          likes: Math.trunc(Math.random() * 10),
-        })
-      );
+      const response = await patchCall(`${LIKE_API}/${postId}`);
+      this.fetchPost(postId);
     } catch (err) {
       console.log('Do something with this error', err);
     }

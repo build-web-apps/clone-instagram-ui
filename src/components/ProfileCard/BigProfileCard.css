@@ -2,6 +2,8 @@
   display: flex;
   flex: 1;
   padding: 0 100px;
+  min-height: 250px;
+  max-height: 250px;
 }
 
 .big-profile-card .avatar-area {

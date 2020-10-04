@@ -5,8 +5,10 @@ import { Loader } from '../../components/Loader/Loader';
 import './Profile.css';
 import { BigProfileCard } from '../../components/ProfileCard/BigProfileCard';
 import { getUserInformation } from '../../utils/Utils';
+import { ProfilePosts } from '../../components/ProfilePosts/ProfilePosts';
 
 const GET_USER_API = '/users';
+const GET_POSTS_API = '/posts';
 const POST_FOLLOW_API = '/users/follow';
 
 const POST_UNFOLLOW_API = '/users/unfollow';
@@ -21,6 +23,16 @@ const updateFollowing = (following, username) => {
     following.push(username);
   }
   return following;
+};
+
+const postsReducer = (state = [], action) => {
+  const { type } = action;
+  switch (type) {
+    case 'set_posts':
+      return [...action.posts];
+    default:
+      return state;
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -53,24 +65,41 @@ export const Profile = ({ ...props }) => {
   const [error, setError] = useState(false);
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [posts, dispatchPosts] = useReducer(postsReducer, []);
 
   let information = getUserInformation();
 
   useEffect(() => {
     const getUser = async (username) => {
+      setLoading(true);
       try {
         const response = await getCall(`${GET_USER_API}/${username}`);
         const users = await response.json();
         const action = { type: 'set_user', ...users[0] };
         dispatch(action);
-        // setLoading(false);
-        // setError(false);
+        setLoading(false);
+        setError(false);
       } catch (err) {
         setLoading(false);
         setError(true);
       }
     };
 
+    const getPosts = async (username) => {
+      setLoading(true);
+      try {
+        const response = await getCall(`${GET_POSTS_API}/user/${username}`);
+        const postsArray = await response.json();
+        const action = { type: 'set_posts', posts: postsArray };
+        dispatchPosts(action);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        setError(true);
+      }
+    };
+
+    getPosts(username);
     getUser(username);
   }, [username]);
 
@@ -114,6 +143,8 @@ export const Profile = ({ ...props }) => {
           }}
         />
       )}
+      {posts.length !== 0 && <ProfilePosts posts={posts} />}
+      {posts.length === 0 && !loading && <span>No posts to show</span>}
     </div>
   );
 };
