@@ -1,55 +1,17 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import imageCompression from 'browser-image-compression';
 import { Header } from './components/Header/Header';
 import { Body } from './components/Body/Body';
 import './App.css';
 import { Upload } from './components/Upload/Upload';
-import { Home } from './views/Home';
-import { Profile } from './views/Profile';
 import { getUserInformation } from './utils/Utils';
-import { Start } from './views/Start';
 import { postCall } from './utils/Network';
 import { Loader } from './components/Loader/Loader';
+import { Routes } from './Routes';
+import { BaseLayout } from './BaseLayout';
 
 const SAVE_POSTS_API = '/posts';
-
-// A wrapper for <Route> that redirects to the login
-// screen if you're not yet authenticated.
-const PrivateRoute = ({ children, ...rest }) => {
-  let user = getUserInformation();
-
-  if (user) {
-    user = user.profile;
-  }
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        user ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/start',
-              state: { from: location },
-            }}
-          />
-        )
-      }
-    />
-  );
-};
-
-const isStartView = () => {
-  const { pathname } = window.location;
-  return pathname.indexOf('/start') !== -1 || pathname === '/';
-};
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -94,6 +56,7 @@ class App extends React.PureComponent {
         onSearchChange={this.onSearchChange}
         onNavigationClick={this.onNavigationClick}
         searchResults={null}
+        username={this.state.userInformation.userName || null}
       />
     );
   }
@@ -177,37 +140,12 @@ class App extends React.PureComponent {
   renderRoutes() {
     return (
       <Router>
-        <Switch>
-          <Route
-            path="/profile/:username"
-            render={(props) => {
-              return <Profile {...props} />;
-            }}
-          ></Route>
-          <PrivateRoute path="/home">
-            <Home userInformation={getUserInformation()} />
-          </PrivateRoute>
-          <Route
-            path="/start"
-            render={(props) => {
-              return this.state.isLoggedin ? (
-                <Redirect to="/" />
-              ) : (
-                <Start {...props} />
-              );
-            }}
-          ></Route>
-          <Route
-            path="/"
-            render={(props) => {
-              return this.state.isLoggedin ? (
-                <Home {...props} userInformation={this.state.userInformation} />
-              ) : (
-                <Redirect to="/start" />
-              );
-            }}
-          ></Route>
-        </Switch>
+        <BaseLayout onNavigationClick={this.onNavigationClick}>
+          <Routes
+            isLoggedin={this.state.isLoggedin}
+            userInformation={this.state.userInformation}
+          />
+        </BaseLayout>
       </Router>
     );
   }
@@ -224,7 +162,6 @@ class App extends React.PureComponent {
   renderInstagramUI() {
     return (
       <React.Fragment>
-        {!isStartView() && this.renderHeader()}
         {this.renderRoutes()}
         {this.state.openDialog && this.renderDialog()}
         {this.state.fileUploadProgress && <Loader />}

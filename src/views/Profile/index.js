@@ -7,6 +7,7 @@ import { BigProfileCard } from '../../components/ProfileCard/BigProfileCard';
 
 const GET_USER_API = '/users';
 const POST_FOLLOW_API = '/users/follow';
+
 const POST_UNFOLLOW_API = '/users/unfollow';
 
 export const Profile = ({ ...props }) => {

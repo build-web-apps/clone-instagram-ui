@@ -1,5 +1,6 @@
-.profile img {
-  max-height: 24px;
+.navigator .profile-avatar {
   border-radius: 50%;
-  display: flex;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
 }
