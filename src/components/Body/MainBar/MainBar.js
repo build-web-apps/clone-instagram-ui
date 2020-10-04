@@ -12,6 +12,7 @@ export const MainBar = ({ posts, onCommentChange, onLike }) => {
           onLike={onLike.bind(null, post._id)}
         />
       ))}
+      {!posts.length && <div>Follow someone to see their posts here</div>}
     </div>
   );
 };
