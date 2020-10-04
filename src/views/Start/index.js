@@ -91,21 +91,20 @@ export class Start extends React.PureComponent {
       }
     } else {
       // The user is trying to register
-      postCall(
-        REGISTRATION_API,
-        JSON.stringify({
-          userName: this.state.username,
-          password: this.state.password,
-          name: this.state.name,
-        })
-      )
-        .then((response) => {
-          const json = response.json();
-          this.setSuccess(json);
-        })
-        .catch((error) => {
-          this.setError(error);
-        });
+      try {
+        let response = await postCall(
+          REGISTRATION_API,
+          JSON.stringify({
+            userName: this.state.username,
+            password: this.state.password,
+            name: this.state.name,
+          })
+        );
+        const json = await response.json();
+        this.setSuccess(json);
+      } catch (error) {
+        this.setError(error);
+      }
     }
   };
 

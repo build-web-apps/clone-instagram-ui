@@ -9,10 +9,6 @@ import { Profile } from './views/Profile';
 // screen if you're not yet authenticated.
 const PrivateRoute = ({ children, ...rest }) => {
   let user = getUserInformation();
-
-  if (user) {
-    user = user.profile;
-  }
   return (
     <Route
       {...rest}
@@ -59,7 +55,7 @@ export const Routes = ({ isLoggedin, userInformation }) => {
         path="/"
         render={(props) => {
           return isLoggedin ? (
-            <Home {...props} userInformation={userInformation} />
+            <Redirect to="/home" />
           ) : (
             <Redirect to="/start" />
           );

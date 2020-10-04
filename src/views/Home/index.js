@@ -13,10 +13,6 @@ export class Home extends React.PureComponent {
 
     let user = getUserInformation();
 
-    if (user) {
-      user = user.profile;
-    }
-
     this.state = {
       posts: [],
       userInformation: {
@@ -72,7 +68,7 @@ export class Home extends React.PureComponent {
   }
 
   render() {
-    return (
+    return this.state.userInformation.userName ? (
       <Body
         className="ins-body"
         userInformation={this.state.userInformation}
@@ -80,6 +76,6 @@ export class Home extends React.PureComponent {
         onCommentChange={this.onCommentChange}
         onLike={this.onLike}
       ></Body>
-    );
+    ) : null;
   }
 }

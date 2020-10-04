@@ -68,7 +68,9 @@ export const BigProfileCard = ({
               size="small"
               variant={isFollowing ? 'outlined' : 'contained'}
               color={isFollowing ? '' : 'primary'}
-              onClick={handleFollowClick}
+              onClick={() => {
+                handleFollowClick();
+              }}
             >
               {isFollowing ? 'Following' : 'Follow'}
             </Button>

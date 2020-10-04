@@ -19,10 +19,6 @@ class App extends React.PureComponent {
 
     let user = getUserInformation();
 
-    if (user) {
-      user = user.profile;
-    }
-
     this.state = {
       posts: [],
       userInformation: {
