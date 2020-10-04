@@ -13,7 +13,7 @@ const INSTAGRAM_SEARCH_PLACEHOLDER_TEXT = 'Search';
 
 export const Header = ({ onSearchChange, onNavigationClick }) => {
   let user = getUserInformation();
-  const username = user ? user.profile.userName : null;
+  const username = user ? user.userName : null;
   return (
     <AppBar color="#ffffff">
       <div className="ins-container">
