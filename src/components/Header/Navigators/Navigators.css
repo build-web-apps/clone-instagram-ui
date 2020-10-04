@@ -1,0 +1,7 @@
+.navigation-link {
+  text-decoration: none;
+}
+
+.navigation-link .MuiIconButton-colorInherit {
+  color: black;
+}
