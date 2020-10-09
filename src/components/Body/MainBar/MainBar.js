@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainBar.css';
-import { Post } from './Post';
+import { Post } from '../../Post/Post';
 
 export const MainBar = ({ posts, onCommentChange, onLike }) => {
   return (

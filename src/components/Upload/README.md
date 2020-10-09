@@ -28,7 +28,7 @@ export const Upload = ({ onDialogClose, onFileUploadSave }) => {
         onSave={onFileUploadSave}
         acceptedFiles={['image/jpeg', 'image/png']}
         showPreviews={true}
-        maxFileSize={1000000}
+        maxFileSize={2000000}
         onClose={onDialogClose}
       />
     </div>
