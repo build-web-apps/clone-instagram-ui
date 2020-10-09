@@ -1,7 +1,7 @@
 import React from 'react';
-import { Post } from '../Body/MainBar/Post';
 
 import './ProfilePosts.css';
+import { Post } from '../Post/Post';
 
 export const ProfilePosts = ({ posts }) => {
   return (

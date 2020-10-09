@@ -9,10 +9,10 @@ import {
   CardContent,
 } from '@material-ui/core';
 import { FavoriteBorderOutlined } from '@material-ui/icons';
-import { Comment } from './Comment';
-import { AddComment } from './AddComment';
-import { getBackgroundColor } from '../../ProfileCard/ProfileCard';
+import { getBackgroundColor } from '../ProfileCard/ProfileCard';
 import { Link } from 'react-router-dom';
+import { AddComment } from '../Comment/AddComment';
+import { Comment } from '../Comment/Comment';
 
 export const Post = ({ post, onCommentChange, onLike }) => {
   const firstCharacter = post.userName[0].toUpperCase();
