@@ -20,7 +20,7 @@ import {
   CardContent,
 } from '@material-ui/core';
 import { FavoriteBorderOutlined } from '@material-ui/icons';
-import { getBackgroundColor } from '../../ProfileCard/ProfileCard';
+import { getBackgroundColor } from '../ProfileCard/ProfileCard';
 import { Link } from 'react-router-dom';
 import { AddComment } from '../Comment/AddComment';
 import { Comment } from '../Comment/Comment';
