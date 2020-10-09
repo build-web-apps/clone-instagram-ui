@@ -91,6 +91,18 @@ Unpacking objects: 100% (32/32), done.
 
 Now we have the `starter pack` in our local environment and ready to use.
 
+Let's first install all the dependencies which are already specified in `package.json`
+
+Do the following:
+
+1. In `react-materialui-starter` directory inside terminal, run the following:
+
+```
+npm install
+```
+
+This will take some time to install the dependencies, meanwhile you can continue with the steps.
+
 ## Usecase
 
 We will build a cloned version of the [Instagram](https://instagram.com/) just for learning purporse.
