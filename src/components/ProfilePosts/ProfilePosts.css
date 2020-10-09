@@ -5,12 +5,12 @@
   justify-content: center;
 }
 
-.ins-post {
+.profile-posts .ins-post {
   display: flex;
   width: 24%;
   margin: 10px;
 }
 
-.profile-navigation-link {
+.profile-posts .profile-navigation-link {
   display: none;
 }
