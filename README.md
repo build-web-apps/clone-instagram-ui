@@ -563,7 +563,7 @@ This is the base which ties all together.
 
 You would already have `App.css` and `App.js` from the starter pack.
 
-1. Open `App.js` under `src` and paste the following:
+1. Open `App.js` under `src` and replace the following:
 
 ```js
 import React from 'react';
@@ -741,7 +741,7 @@ class App extends React.PureComponent {
 export default App;
 ```
 
-2. Open `App.css` under `src` and paste the following:
+2. Open `App.css` under `src` and replace the following:
    > NOTE: This file deals with all the `responsiveness` required for the whole **APP**
 
 ```css
