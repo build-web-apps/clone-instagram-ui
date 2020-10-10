@@ -9,6 +9,10 @@ export const setUserInformation = (user) => {
   return ss.setItem('clone-ins', user);
 };
 
+export const removeUserInformation = () => {
+  window.localStorage.removeItem('clone-ins');
+};
+
 export const isValid = (value) => {
   return typeof value === 'string' && value.trim() !== '';
 };

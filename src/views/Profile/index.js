@@ -15,12 +15,12 @@ const POST_UNFOLLOW_API = '/users/unfollow';
 
 const initialState = {};
 
-const updateFollowing = (following, username) => {
-  const index = following.indexOf(username);
+const updateFollowing = (following, loggedIn) => {
+  const index = following.indexOf(loggedIn);
   if (index !== -1) {
-    following.slice(index, 1);
+    following.splice(index, 1);
   } else {
-    following.push(username);
+    following.push(loggedIn);
   }
   return following;
 };
@@ -37,6 +37,7 @@ const postsReducer = (state = [], action) => {
 
 const reducer = (state = initialState, action) => {
   const { type, ...rest } = action;
+  debugger;
   switch (type) {
     case 'set_user':
       return {
@@ -45,7 +46,7 @@ const reducer = (state = initialState, action) => {
     case 'update_followers':
       return {
         ...state,
-        followers: updateFollowing(state.followers, rest.username),
+        followers: updateFollowing(state.followers, rest.loggedIn),
       };
     default:
       return state;
@@ -75,6 +76,7 @@ export const Profile = ({ ...props }) => {
       try {
         const response = await getCall(`${GET_USER_API}/${username}`);
         const users = await response.json();
+        debugger;
         const action = { type: 'set_user', ...users[0] };
         dispatch(action);
         setLoading(false);
@@ -104,20 +106,27 @@ export const Profile = ({ ...props }) => {
   }, [username]);
 
   const handleFollowClick = async () => {
+    debugger;
     let url = POST_FOLLOW_API;
     if (isFollowing(state, information.userName)) {
       url = POST_UNFOLLOW_API;
     }
     url += `/${username}`;
+    debugger;
     try {
-      const response = await patchCall(
+      await patchCall(
         url,
         JSON.stringify({
           loggedIn: information.userName,
         })
       );
-      updateFollowing(state.followers, username);
-      dispatch({ type: 'update_followers', username: information.userName });
+      debugger;
+      updateFollowing([...state.followers], information.userName);
+      dispatch({
+        type: 'update_followers',
+        loggedIn: information.userName,
+        username,
+      });
     } catch (err) {
       console.log('Do something with the error');
     }
@@ -126,15 +135,18 @@ export const Profile = ({ ...props }) => {
   return (
     <div className="profile-view ins-body">
       {loading && <Loader />}
+      {error && <span>No profile exists with the username {username}</span>}
       {!loading && !error && (
         <BigProfileCard
           userName={username}
           description={username}
           name={state ? state.name : ''}
           showFollowing={
-            state.userName ? state.userName !== information.userName : false
+            state.userName && information
+              ? state.userName !== information?.userName
+              : false
           }
-          isFollowing={isFollowing(state, information.userName)}
+          isFollowing={isFollowing(state, information?.userName)}
           postsCount={posts.length}
           followersCount={state.followers ? state.followers.length : 0}
           followingCount={state.following ? state.following.length : 0}

@@ -11,21 +11,79 @@
 
 ```js
 import React from 'react';
-import './Search.css';
+import './Navigators.css';
+import { Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { Home, FavoriteBorderOutlined, Add } from '@material-ui/icons';
+import { Profile } from './Profile';
+import { Link } from 'react-router-dom';
+import { removeUserInformation } from '../../../utils/Utils';
 
-import InputBase from '@material-ui/core/InputBase';
+export const Navigators = ({ className, username, onNavigationClick }) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-export const Search = ({ placeholder, searchResults, onSearchChange }) => {
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (type) => {
+    setAnchorEl(null);
+    if (type === 'log-out') {
+      removeUserInformation();
+      window.location.reload();
+    }
+  };
   return (
-    <div className="ins-search">
-      <InputBase
-        type="search"
-        placeholder={placeholder}
-        className="ins-search-box"
-        inputProps={{ 'aria-label': 'search' }}
-        onChange={onSearchChange}
-      />
-    </div>
+    <Toolbar className={className}>
+      {username && (
+        <React.Fragment>
+          <Link to={`/home`} className="navigation-link">
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <Home />
+            </IconButton>
+          </Link>
+          <IconButton color="inherit" aria-label="menu">
+            <FavoriteBorderOutlined />
+          </IconButton>
+          <IconButton
+            onClick={onNavigationClick.bind(null, 'add-media')}
+            color="inherit"
+            aria-label="menu"
+          >
+            <Add />
+          </IconButton>
+          {/* <Link to={`/profile/${username}`} className="navigation-link"></Link> */}
+          <IconButton
+            color="inherit"
+            aria-label="menu"
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <Profile username={username} />
+          </IconButton>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+          >
+            <Link to={`/profile/${username}`} className="navigation-link">
+              <MenuItem onClick={handleClose.bind(null, 'profile')}>
+                Profile
+              </MenuItem>
+            </Link>
+            <MenuItem onClick={handleClose.bind(null, 'log-out')}>
+              Logout
+            </MenuItem>
+          </Menu>
+        </React.Fragment>
+      )}
+      {!username && (
+        <Link to="/start">
+          <span>Login / Signup</span>
+        </Link>
+      )}
+    </Toolbar>
   );
 };
 ```
@@ -33,19 +91,13 @@ export const Search = ({ placeholder, searchResults, onSearchChange }) => {
 > Open `Navigators.css` and paste the following:
 
 ```css
-.ins-search-box {
-  width: 215px;
-}
-.ins-search-box input {
-  background-color: #fafafa;
-  border: solid 1px #dbdbdb;
-  padding: 4px;
-  font-size: 14px;
-  text-align: center;
+.navigation-link {
+  text-decoration: none;
+  color: inherit;
 }
 
-.ins-search-box input:focus {
-  text-align: left;
+.navigation-link .MuiIconButton-colorInherit {
+  color: black;
 }
 ```
 

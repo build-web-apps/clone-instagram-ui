@@ -61,6 +61,12 @@ export const Routes = ({ isLoggedin, userInformation }) => {
           );
         }}
       ></Route>
+      <Route
+        path="*"
+        render={() => {
+          return <Redirect to="/start" />;
+        }}
+      ></Route>
     </Switch>
   );
 };
