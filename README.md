@@ -1,5 +1,7 @@
 # clone-instagram-ui
 
+DISCLAIMER: This is not an official `instagram` repository. This is just a clone with some features mainly for educational purposes.
+
 ## Prerequisites:
 
 You should have the following installed in your system before starting this tutorial / workshop.
