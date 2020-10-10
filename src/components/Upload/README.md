@@ -6,6 +6,8 @@ So far, we have seen directly adding dependencies in `package.json` file. This i
 
 Run the following command in the terminal
 
+> NOTE: If you are currently in the cmd prompt / terminal which serves the UI (`localhost:3000`), you may want to create a new terminal / cmd prompt instance in the same directory of the project location.
+
 ```
 npm install --save material-ui-dropzone
 ```
