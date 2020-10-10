@@ -940,8 +940,8 @@ As next steps, you can take a small home work and try building those in your own
 
 **HINT** for building Searching,
 
-API: https://clone-instagram-backend.herokuapp.com/users lists all the users.
-Auto complete: https://material-ui.com/api/autocomplete/
+- API: https://clone-instagram-backend.herokuapp.com/users lists all the users.
+- Auto complete: https://material-ui.com/api/autocomplete/
 
 As users type characters, you can show the suggestions and the user can then pick the user based on the suggestions.
 
