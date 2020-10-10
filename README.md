@@ -901,4 +901,12 @@ Repository name is `react-materialui-starter` unless you have changed the name. 
 
 13. Since we are doing for the first time, we will manually deploy once to see our current changes. To do that, in `Manual deploy` click on the button `Deploy branch` ensuring `master` branch is selected.
 
+You can see the build logs running.
+
+Once the build and deploy is successful, you will see the following:
+
+`Your app was successfully deployed`
+
+Now click on the `View` to view your app.
+
 Now the app will be deployed and you can see the changes live at `${app-name}.herokuapp.com`. Alternatively, you can click on the button `Open App` to launch as well.
