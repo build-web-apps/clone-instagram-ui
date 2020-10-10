@@ -150,6 +150,8 @@ npm run dev
 
 This will build and start the application by default in `http://localhost:3000`.
 
+Open your browser and type the following url: `http://localhost:3000` if not automatically done.
+
 Now, if you can see this without any error, our app is successfully loaded with the basic changes which are already present.
 
 Don't close this terminal / cmd prompt as the browser page will be auto refreshed whenever we make any change in `JS / CSS` files.
