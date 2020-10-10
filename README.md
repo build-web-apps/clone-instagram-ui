@@ -224,6 +224,14 @@ Let the hacking begin! :)
 Now that we have the base project ready, we can go ahead and start updating to acheive our features.
 Let's start by building small components which we will use in our flows later.
 
+1. Open `VSCode`
+
+2. Click File -> Open and select the `react-materialui-starter` project location.
+
+Now the project should be opened in `VSCode`
+
+Going forward, everything will be done in `VSCode`
+
 ## Components
 
 #### Loader component
