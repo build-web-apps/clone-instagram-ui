@@ -3,7 +3,11 @@
 1. Navigate to the `src` folder inside `react-materialui-starter` project.
 2. Create a folder `components` inside `src`
 
-This is where we will place all reusable components. 3. Create a folder `Loader` inside `src/components` 4. Create 2 files
+This is where we will place all reusable components.
+
+3. Create a folder `Loader` inside `src/components`
+
+4. Create 2 files
 
 - `Loader.js`
 - `Loader.css`
