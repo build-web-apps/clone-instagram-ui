@@ -927,3 +927,17 @@ Now click on the `View` to view your app.
 
 You should see the exact same changes as you saw when you ran locally in `localhost`
 
+## Next Steps
+
+We have built various features listed above.
+Among them, `Search` layout is present but not the capability of searching people.
+Also, the `Heart` icon is present in the `Header` but it does nothing.
+
+As next steps, you can take a small home work and try building those in your own way and reach out in case of any issues.
+
+**HINT** for building Searching,
+
+API: https://clone-instagram-backend.herokuapp.com/users lists all the users.
+Auto complete: https://material-ui.com/api/autocomplete/
+
+As users type characters, you can show the suggestions and the user can then pick the user based on the suggestions.
