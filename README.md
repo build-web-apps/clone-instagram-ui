@@ -894,7 +894,8 @@ If the above pattern is unavailable, feel free to choose any other name.
 
 10. Now, in `Deployment method` select `Connect to Github`. In the pop up window, click on `Authorize` button.
 
-11. Give your current repository name that we are using and click on Connect. Repository name is `react-materialui-starter` unless you have changed the name. Make sure to select the organization you have forked the repository to initially.
+11. Give your current repository name that we are using and click on **Connect**. 
+Repository name is `react-materialui-starter` unless you have changed the name. Make sure to select the organization you have forked the repository to initially.
 
 12. In `Automatic deploys` click on the button `Enable automatic deploys` - This builds for every push made against the master branch of the repo. We don't have to deploy again.
 
