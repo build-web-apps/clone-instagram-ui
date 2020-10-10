@@ -66,6 +66,14 @@ You should get something like the following: (Note: The version number can be di
 v12.18.3
 ```
 
+> Specifically for Windows OS users. After installing `node` while running **node -v**, if you get the following message:
+
+```
+node is not recognized, ...
+```
+
+You may have to close and open the command prompt in order for the node changes to be reflected. Once you open the command prompt again, try `node -v`
+
 If you have successfully done all the above, then you have all the required softwares / programs properly installed.
 
 (Note: Installing a browser is also important, but since you are able to see this, you should have some browser already running. :D :D)
