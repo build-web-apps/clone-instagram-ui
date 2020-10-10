@@ -909,4 +909,3 @@ Once the build and deploy is successful, you will see the following:
 
 Now click on the `View` to view your app.
 
-Now the app will be deployed and you can see the changes live at `${app-name}.herokuapp.com`. Alternatively, you can click on the button `Open App` to launch as well.
