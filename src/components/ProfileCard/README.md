@@ -206,6 +206,8 @@ export const BigProfileCard = ({
 };
 ```
 
+> Inside **BigProfileCard.css** file, copy paste the following
+
 ```css
 .big-profile-card {
   display: flex;
