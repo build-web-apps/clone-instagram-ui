@@ -140,7 +140,7 @@ Do the following:
 npm install
 ```
 
-This will take some time to install the dependencies.
+This will take some time (around 5 to 10 minutes) to install the dependencies.
 
 Once the installation is successful, run the following command:
 
