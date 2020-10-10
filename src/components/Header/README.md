@@ -93,6 +93,6 @@ If you have observed the `Header.js` file, we would have use the following:
 
 Those are small components inside Header itself, let's create them
 
-3. Click here to follow the steps to create a [Logo]()
-4. Click here to follow the steps to create a [Navigators]()
-5. Click here to follow the steps to create a [Search]()
+3. Click here to follow the steps to create a [Logo](./Logo/README.md)
+4. Click here to follow the steps to create a [Navigators](./Navigators/README.md)
+5. Click here to follow the steps to create a [Search](./Search/README.md)
