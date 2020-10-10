@@ -3,7 +3,7 @@
 Start view is responsible for **Registration** (or) **Login** form
 
 1. Create a folder `Start` under `src/views`
-2. Create a file `index.js` and paste the following:
+2. Create a file `index.js` under the `Start` folder and paste the following:
 
 ```js
 import React from 'react';
@@ -192,7 +192,7 @@ export class Start extends React.PureComponent {
 }
 ```
 
-3. Create a file `index.css` and paste the following:
+3. Create a file `index.css` under `Start` folder and paste the following:
 
 ```css
 .start-container {
