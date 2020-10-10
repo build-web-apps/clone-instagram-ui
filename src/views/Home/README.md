@@ -5,7 +5,7 @@ Home view is responsible for rendering `posts` from the ones the logged in user 
 It also displays a `Sidebar` which has the loggedin user information.
 
 1. Create a folder `Home` under `src/views`
-2. Create a file `index.js` and paste the following:
+2. Create a file `index.js` under `Home` folder and paste the following:
 
 ```js
 import React from 'react';
