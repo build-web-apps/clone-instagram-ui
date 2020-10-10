@@ -8,6 +8,9 @@ Run the following command in the terminal
 
 > NOTE: If you are currently in the cmd prompt / terminal which serves the UI (`localhost:3000`), you may want to create a new terminal / cmd prompt instance in the same directory of the project location.
 
+To do so, for windows open a new cmd prompt from `Start` and navigate to the project location.
+for MAC, you can create a new tab / window and navigate to the project location.
+
 ```
 npm install --save material-ui-dropzone
 ```
