@@ -4,6 +4,37 @@
 
 You should have the following installed in your system before starting this tutorial / workshop.
 
+If you have already installed the below ones, please verify if they are properly installed by following the verification steps for each as listed below.
+
+Verification:
+
+1. To check if `Git` is installed, go to your terminal / cmd prompt, run the following command
+
+```
+git version
+```
+
+You should get something like the following: (Note: The version number can be different, that's ok).
+
+```
+git version 2.23.0
+```
+
+2. To check if `VSCode` is installed, just try to open from your OS.
+3. To check if `node` is installed, run the following command
+
+```
+node -v
+```
+
+You should get something like the following: (Note: The version number can be different, that's ok).
+
+```
+v12.18.3
+```
+
+If not, please find below steps to install
+
 1. Git - https://git-scm.com/downloads
 2. VSCode - https://code.visualstudio.com/download
 3. Node - https://nodejs.org/en/download/
