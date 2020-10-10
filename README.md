@@ -934,7 +934,7 @@ Among them,
 
 1. `Search` layout is present but not the capability of searching people.
 
-2. Also, the `Heart` icon is present in the `Header` but it does nothing.
+2. Also, the `Heart` icon is present in the `Header` but it does nothing, you can add functionality to build to show notifications whenever some ones follows / likes / comments just like `Instagram` / `Facebook`
 
 As next steps, you can take a small home work and try building those in your own way and reach out in case of any issues.
 
@@ -944,3 +944,5 @@ API: https://clone-instagram-backend.herokuapp.com/users lists all the users.
 Auto complete: https://material-ui.com/api/autocomplete/
 
 As users type characters, you can show the suggestions and the user can then pick the user based on the suggestions.
+
+You can take reference from actual `Instagram` - https://instagram.com/ on how Search and Notification works.
