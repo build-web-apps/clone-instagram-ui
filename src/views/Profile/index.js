@@ -135,7 +135,7 @@ export const Profile = ({ ...props }) => {
             state.userName ? state.userName !== information.userName : false
           }
           isFollowing={isFollowing(state, information.userName)}
-          postsCount={1000}
+          postsCount={posts.length}
           followersCount={state.followers ? state.followers.length : 0}
           followingCount={state.following ? state.following.length : 0}
           handleFollowClick={() => {
