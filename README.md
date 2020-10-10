@@ -828,6 +828,12 @@ You would already have `App.css` and `App.js` from the starter pack. Let's delet
 
 ## Testing
 
+For the end to end feature to work, we have now used the existing API endpoint that we have already created for you - https://clone-instagram-backend.herokuapp.com
+
+> NOTE: We have not done any work related to API / Backend as a part of this workshop.
+
+You will learn more about Backend concepts tomorrow.
+
 Once you have done all the steps as mentioned above, we will now have the full application working.
 Now, go to `http://localhost:3000` and you can see your changes.
 
