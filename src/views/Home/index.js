@@ -38,7 +38,7 @@ export class Home extends React.PureComponent {
     const response = await getCall(`/posts/${postId}`);
     const post = await response.json();
     this.setState({
-      posts: updatePosts(this.state.posts, post),
+      posts: updatePosts(this.state.posts, post[0]),
     });
   }
 
