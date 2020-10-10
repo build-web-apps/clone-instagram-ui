@@ -226,7 +226,7 @@ Let's start by building small components which we will use in our flows later.
 
 1. Open `VSCode`
 
-2. Click File -> Open and select the `react-materialui-starter` project location.
+2. Click `File -> Open Folder` (in case of Windows) `File -> Open` (in case of Mac) and select the `react-materialui-starter` project location.
 
 Now the project should be opened in `VSCode`
 
