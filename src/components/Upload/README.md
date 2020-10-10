@@ -1,10 +1,19 @@
 ## File Upload
 
+For uploading media / file, we will use a plugin `material-ui-dropzone`.
+
+So far, we have seen directly adding dependencies in `package.json` file. This is another way to add a dependency via `Terminal` (or) `Cmd prompt` and also add the entry in the `package.json` file.
+
 Run the following command in the terminal
 
 ```
 npm install --save material-ui-dropzone
 ```
+
+Here,
+
+- `install` - installs the dependencies in the `node_modules` folder
+- `--save` - adds an entry to the `dependencies` section of **package.json** file.
 
 Post installation, "material-ui-dropzone" should have been added to the "dependencies" section of "package.json" file
 
