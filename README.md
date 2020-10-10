@@ -174,7 +174,7 @@ Let's start by building small components which we will use in our flows later.
 Useful to show `Spinner` whenever we make some network calls. This way, the user knows that something is happening and he/she has to wait.
 Otherwise, the user wouldn't know what's going on.
 
-Click here to follow the steps to create a [Loader]()
+Click here to follow the steps to create a [Loader](./src/components/Loader/README.md)
 
 #### ProfileCard component
 
@@ -186,19 +186,19 @@ Click here to follow the steps to create a [ProfileCard](./src/components/Profil
 
 Useful for displaying / adding comments in posts.
 
-Click here to follow the steps to create a [Comment]()
+Click here to follow the steps to create a [Comment](./src/components/Comment/README.md)
 
 #### Post component
 
 Useful for displaying post card.
 
-Click here to follow the steps to create a [Post]()
+Click here to follow the steps to create a [Post](./src/components/Post/README.md)
 
 #### ProfilePosts component
 
 Useful for displaying posts inside `Profile` page.
 
-Click here to follow the steps to create a [ProfilePosts]()
+Click here to follow the steps to create a [ProfilePosts](./src/components/ProfilePosts/README.md)
 
 #### Upload component
 
@@ -210,13 +210,13 @@ Click here to follow the steps to create a [Upload](./src/components/Upload/READ
 
 Useful for displaying header on all pages except `Registration / Login`
 
-Click here to follow the steps to create a [Header]()
+Click here to follow the steps to create a [Header](./src/components/Header/README.md)
 
 #### Body component
 
 Useful for displaying main bar (Center layout) and the side bar
 
-Click here to follow the steps to create a [Body]()
+Click here to follow the steps to create a [Body](./src/components/Body/README.md)
 
 > NOTE: If you have followed from the beginning, we have now completed creating all the reusable components.
 
@@ -327,9 +327,9 @@ To create different views, let's create a folder within which everything will go
 
 Create a folder `views` under `src`
 
-1. Click here to follow the steps to create a [Home View]()
-2. Click here to follow the steps to create a [Start View]()
-3. Click here to follow the steps to create a [Profile View]()
+1. Click here to follow the steps to create a [Home View](./src/views/Home/README.md)
+2. Click here to follow the steps to create a [Start View](./src/views/Start/README.md)
+3. Click here to follow the steps to create a [Profile View](./src/views/Profile/README.md)
 
 Now we have all our individual views ready, but we have still not said what view has to be loaded when.
 
