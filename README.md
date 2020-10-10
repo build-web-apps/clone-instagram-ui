@@ -930,8 +930,11 @@ You should see the exact same changes as you saw when you ran locally in `localh
 ## Next Steps
 
 We have built various features listed above.
-Among them, `Search` layout is present but not the capability of searching people.
-Also, the `Heart` icon is present in the `Header` but it does nothing.
+Among them, 
+
+1. `Search` layout is present but not the capability of searching people.
+
+2. Also, the `Heart` icon is present in the `Header` but it does nothing.
 
 As next steps, you can take a small home work and try building those in your own way and reach out in case of any issues.
 
