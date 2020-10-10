@@ -4,7 +4,7 @@ Profile view is responsible for rendering `profile` information about the logged
 It also displays `posts` from the logged in user.
 
 1. Create a folder `Profile` under `src/views`
-2. Create a file `index.js` and paste the following:
+2. Create a file `index.js` under `Profile` folder and paste the following:
 
 ```js
 import React, { useState, useEffect, useReducer } from 'react';
@@ -171,7 +171,7 @@ export const Profile = ({ ...props }) => {
 };
 ```
 
-3. Create a file `Profile.css` and paste the following:
+3. Create a file `Profile.css` under `Profile` folder and paste the following:
 
 ```css
 .profile-view {
