@@ -101,7 +101,19 @@ Do the following:
 npm install
 ```
 
-This will take some time to install the dependencies, meanwhile you can continue with the steps.
+This will take some time to install the dependencies.
+
+Once the installation is successful, run the following command:
+
+```
+npm run dev
+```
+
+This will build and start the application by default in `http://localhost:3000`.
+
+Now, if you can see this without any error, our app is successfully loaded with the basic changes which are already present.
+
+Don't close this terminal / cmd prompt as the browser page will be auto refreshed whenever we make any change in `JS / CSS` files.
 
 ## Usecase
 
@@ -760,3 +772,33 @@ You would already have `App.css` and `App.js` from the starter pack. Let's delet
   }
 }
 ```
+
+## Deployment
+
+Now, we are done with our changes. Let's try to deploy our code to `Heroku`.
+
+### Heroku - Getting started
+
+1. Go to `https://www.heroku.com/` and create an account.
+2. Once your account is ready, click on `New` at the right top.
+3. Select `Create New App` app.
+4. Now, give a unique name to the app
+
+> NOTE: This has to be unique across the world and hence for simplicity let's use the following pattern:
+
+```
+${githubusername}-instagram-clone
+```
+
+If the above pattern is unavailable, feel free to choose any other name.
+5. Choose a region (eg. United States)
+6. Click on `Add to pipeline`
+7. Select `Choose a pipeline`
+8. Click `Create new pipeline`
+9. Give a pipeline name if not already prefilled and click on `Create app`
+10. Now, in `Deployment method` select `Connect to Github`
+11. Give your current repository name that we are using and click on Connect.
+12. In `Automatic deploys` click on the button `Enable automatic deploys` - This builds for every push made against the master branch of the repo. We don't have to deploy again.
+13. Since we are doing for the first time, we will manually deploy once to see our current changes. To do that, in `Manual deploy` click on the button `Deploy branch` ensuring `master` branch is selected.
+
+Now the app will be deployed and you can see the changes live at `${app-name}.herokuapp.com`. Alternatively, you can click on the button `Open App` to launch as well.
