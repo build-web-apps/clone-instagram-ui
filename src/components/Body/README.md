@@ -38,5 +38,5 @@ We can see that Body has 2 files included
 
 Let's go and create them.
 
-- Click here to follow the steps to create a [MainBar]()
-- Click here to follow the steps to create a [SideBar]()
+- Click here to follow the steps to create a [MainBar](./MainBar/README.md)
+- Click here to follow the steps to create a [SideBar](./SideBar/README.md)
