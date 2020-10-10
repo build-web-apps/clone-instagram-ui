@@ -561,6 +561,10 @@ export const BaseLayout = ({ ...props }) => {
 
 This is the base which ties all together.
 
+You would already have `App.css` and `App.js` from the starter pack. Let's delete both of them.
+
+> NOTE: (Or) You can just replace the contents in the respective files in the following steps
+
 1. Create a file `App.js` under `src` and paste the following:
 
 ```js
@@ -738,10 +742,6 @@ class App extends React.PureComponent {
 
 export default App;
 ```
-
-You would already have `App.css` and `App.js` from the starter pack. Let's delete both of them.
-
-> NOTE: (Or) You can just replace the contents in the respective files in the following steps
 
 2. Create a file `App.css` under `src` and paste the following:
    > NOTE: This file deals with all the `responsiveness` required for the whole **APP**
