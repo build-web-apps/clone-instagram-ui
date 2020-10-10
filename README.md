@@ -909,3 +909,5 @@ Once the build and deploy is successful, you will see the following:
 
 Now click on the `View` to view your app.
 
+You should see the exact same changes as you saw when you ran locally in `localhost`
+
