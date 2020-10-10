@@ -818,6 +818,51 @@ You would already have `App.css` and `App.js` from the starter pack. Let's delet
 }
 ```
 
+## Testing
+
+Once you have done all the steps as mentioned above, we will now have the full application working.
+Now, go to `http://localhost:3000` and you can see your changes.
+
+## Pushing changes to Github
+
+Now that we have tested and verified all changes locally.
+
+Let's push the changes to Github
+
+To do that, perform the following sequence of steps:
+
+1. Run the following command:
+
+```
+git add .
+```
+
+The above command basically adds all the local changes to stage
+
+2. Run the following command:
+
+```
+git commit -m "feat(app): full instagram clone changes"
+```
+
+The above command commits our changes locally.
+
+3. Run the following command:
+
+```
+git push origin master
+```
+
+You would be in `master` branch by default unless you switched branches.
+
+In case you switched to a different branch, you can run the required steps to push from that branch to **master**
+
+Since, we have already enabled the automatic deployment to `Heroku`, we can now go to our `Heroku` dashboard (https://dashboard.heroku.com/) and navigate to the app you have created in Heroku during the start and look for the build that is automatically triggered.
+
+You can wait for a few minutes before refreshing the `Heroku app url` to see your new changes live.
+
+If you have not done the deployment step earlier, please follow the below to do the same.
+
 ## Deployment
 
 Now, we are done with our changes. Let's try to deploy our code to `Heroku`.
