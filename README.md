@@ -115,6 +115,10 @@ Now, if you can see this without any error, our app is successfully loaded with 
 
 Don't close this terminal / cmd prompt as the browser page will be auto refreshed whenever we make any change in `JS / CSS` files.
 
+Now that we have seen the changes working fine, we will go ahead and deploy this in `Heroku` and enable `CI/CD` so that our subsequent pushes to the `master` branch of the same repo will automatically trigger a build and changes will be loaded in the `Heroku app url`
+
+To deploy to heroku, follow these steps [Deploy To Heroku](https://github.com/build-web-apps/clone-instagram-ui/#deployment)
+
 ## Usecase
 
 We will build a cloned version of the [Instagram](https://instagram.com/) just for learning purporse.
