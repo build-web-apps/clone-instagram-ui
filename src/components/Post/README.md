@@ -1,4 +1,4 @@
-# Comment
+# Post
 
 1. Create a folder `Post` inside `src/components`
 2. Create 2 files
