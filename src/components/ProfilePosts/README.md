@@ -1,4 +1,4 @@
-# Comment
+# ProfilePosts
 
 1. Create a folder `ProfilePosts` inside `src/components`
 2. Create 2 files
